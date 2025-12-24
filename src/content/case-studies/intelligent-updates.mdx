@@ -1,0 +1,27 @@
+---
+title: "Intelligent Updates"
+description: "Optimizing data usage for app updates by 40%."
+date: "2024-05-20"
+company: "PhonePe"
+category: "Consumer"
+---
+
+# Situation
+Users in tier-2 and tier-3 cities were experiencing high failure rates when updating the app due to patchy network conditions and limited data plans. This led to version fragmentation, with many users stuck on older, less secure versions of the app.
+
+# Task
+My goal was to reduce the data consumption required for app updates and improve the successful update rate. We aimed to reduce data usage by at least 30% and improve update completion rates by 20%.
+
+# Action
+I spearheaded the development of a smart update system:
+
+- **Delta Updates**: Implemented a binary diffing algorithm that only downloads the parts of the APK that changed, rather than the entire package.
+- **Network-Aware Scheduling**: The updater analyzes network strength and schedules larger downloads for when the user is on Wi-Fi or a stable 4G connection.
+- **Resumable Downloads**: Added support for pausing and resuming downloads, critical for handling intermittent connectivity.
+
+# Result
+The new "Intelligent Updates" system delivered massive improvements:
+
+- **40% Reduction in Data Usage**: The average update size dropped significantly, saving users valuable data.
+- **35% Improvement in Completion Rates**: More users successfully updated to the latest version, reducing fragmentation.
+- **Enhanced Security**: Faster adoption of security patches due to smaller download sizes.
