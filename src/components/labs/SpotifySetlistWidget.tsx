@@ -27,9 +27,9 @@ export default function SpotifySetlistWidget() {
                         </span>
                     </div>
 
-                    <Title className="text-white mb-2">Spotify Setlist Generator</Title>
+                    <Title className="text-white mb-2">Spotify AI Setlist Generator</Title>
                     <Text className="text-zinc-400 mb-6">
-                        AI-powered setlist curator. Analyzes BPM, Key, and Energy to create the perfect flow for any vibe.
+                        Your personal AI DJ that curates seamless setlists using harmonic mixing, energy flow, and beat matching.
                     </Text>
                 </div>
 
@@ -55,12 +55,19 @@ export default function SpotifySetlistWidget() {
                         </div>
                     </div>
 
-                    <Button
-                        size="md"
-                        className="w-full mt-4 bg-green-600 hover:bg-green-700 border-none text-white"
+                    <a
+                        href="https://setlist-ai-ten.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full mt-4"
                     >
-                        Launch Experiment
-                    </Button>
+                        <Button
+                            size="md"
+                            className="w-full bg-green-600 hover:bg-green-700 border-none text-white"
+                        >
+                            Launch App
+                        </Button>
+                    </a>
                 </div>
             </Card>
         </motion.div>
