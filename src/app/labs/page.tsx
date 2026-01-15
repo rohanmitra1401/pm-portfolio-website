@@ -1,4 +1,5 @@
 import SpotifySetlistWidget from "@/components/labs/SpotifySetlistWidget";
+import VibeReelWidget from "@/components/labs/VibeReelWidget";
 
 export const metadata = {
     title: "Labs | Rohan Mitra",
@@ -17,6 +18,7 @@ export default function LabsPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <SpotifySetlistWidget />
+                <VibeReelWidget />
 
                 {/* Placeholder for future side projects */}
                 <div className="group relative flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-zinc-200 p-8 text-center hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700 transition-colors">
