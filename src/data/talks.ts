@@ -110,7 +110,7 @@ export const talks: Talk[] = [
         description:
             "A practical walkthrough of how to write a product spec for a recommendation system — covering data inputs, ranking logic, business constraints, and how to measure success.",
         date: "2025-11-18",
-        event: "OC2: DSC Europe",
+        event: "DSC Europe",
         platform: "other",
         // url intentionally omitted — no public recording link available
         tags: ["AI", "Product Spec", "Recommendation Systems"],
