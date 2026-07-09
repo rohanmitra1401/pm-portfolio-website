@@ -1,43 +1,32 @@
 ---
-title: "Seller & Ops Reporting Hub"
-description: "Building the data backbone for High-Velocity Logistics and reducing WISMO calls."
-date: "2023-01-01"
-company: "Pincode"
-category: "B2B & Operations"
+title: "Fixing the Post-Checkout Experience in Quick Commerce"
+description: "Order breaches down 11%, WISMO queries down 15%, NPS up 8 points — rebuilding everything that happens after the customer pays."
+date: "Sep – Dec 2025"
+company: "PhonePe Pincode"
+category: "Consumer"
+sortOrder: 3
 ---
-
-## S.T.A.R. Snapshot
-
-**Situation:** Pincode's rapid growth in quick commerce led to fragmented data visibility for sellers and operations, plus a high volume of "Where is my Order?" (WISMO) support tickets.
-**Task:** Create a centralized reporting hub and improve order tracking transparency.
-**Action:** Launched the 'Seller & Ops Reporting Hub' and a real-time order tracking system.
-**Result:** Achieved 99.2% fulfillment rate transparency and significantly reduced WISMO queries.
 
 ## Context
 
-In the high-stakes world of quick commerce, visibility is everything. Sellers needed to know their inventory status in real-time, and Ops teams needed to identify bottlenecks immediately. Meanwhile, customers were anxious about their deliveries, driving up support costs.
+Pincode was PhonePe's quick-commerce play (sunset in December 2025). Everything after the customer pays — order tracking, delivery promise, exception handling, support — was the experience bottleneck: breached delivery promises, a support queue where "where is my order?" (WISMO) queries alone were **~40% of all tickets**, and fulfillment logic too fragile to expand beyond grocery.
 
-## The Challenge
+## What I owned
 
-1.  **Data Silos:** Critical data was scattered across disparate systems, making it hard to get a "single pane of glass" view.
-2.  **Support Volume:** A large percentage of support tickets were simple status checks (WISMO).
-3.  **Operational Blindspots:** Delays in the "last mile" were often detected too late to rectify.
+The entire post-checkout and fulfillment roadmap. Three builds:
 
-## The Solution
+**1. Order state machine and exception-handling logic.** I rebuilt how an order moves through its lifecycle, with explicit states and automated handling for the failure modes (rider unavailable, partial fulfillment, delayed handoff) that previously fell to manual ops. This is what made expansion from grocery to **high-value retail SKUs** possible — those orders can't tolerate ad-hoc exception handling.
 
-### 1. Seller & Ops Reporting Hub
-A centralized dashboard serving two key distinct user groups:
-- **For Sellers**: Real-time earnings, inventory depletion rates, and return analytics.
-- **For Ops Managers**: A comprehensive tool to monitor **order breaches** and **inventory**, empowering them to make data-driven decisions on the ground.
+**2. ETA rearchitecture.** The delivery promise was breaking because the ETA itself was unreliable — sourced from static 3PL data, with no reliable origin event. And the display logic was worse: if a rider wasn't assigned on time, the app kept showing an ETA that was physically impossible to meet. I rearchitected the calculation on our own backend timestamps plus **Google Maps API** routing layered over **Loadshare** (logistics partner) data, moved live rider tracking forward from "out for delivery" to the moment of rider assignment, and built an explicit **delayed state**: when the promise is breached and no rider is assigned, the app says so — and surfaces a self-serve cancellation option instead of routing the customer to an agent.
 
-### 2. Post-Checkout & Fulfillment (WISMO Reduction)
-Overhauled the post-order experience to streamline communication between the **Rider App** and **End-User**:
-- **Live Tracking**: Granular status updates from "Picking" to "Out for Delivery".
-- **WISMO Reduction**: Significantly reduced "Where Is My Order" support queries by providing transparent, real-time updates.
-- **Proactive Notifications**: SMS/WhatsApp alerts for key milestones.
+**3. Rider–customer communication sync.** Redesigned how delivery status reached the customer in real time, alongside automated support workflows that resolved WISMO queries before they became tickets. For damage and mismatch claims, an AI agent ran first-layer image verification against the SKU's catalog appearance — above a 90% confidence threshold it triggered an instant refund; below it, a warm handoff to a human agent with the evidence pre-highlighted.
 
 ## Impact
 
--   **99.2% Fulfillment Rate** visibility achieved for Ops teams.
--   **WISMO Reduction:** Significant drop in order-status related support tickets (implied).
--   **Current Focus:** Continuing to refine high-velocity logistics infrastructure.
+- **Order breaches down 11%** — via the exception-handling and fulfillment logic
+- **WISMO queries down 15%** — customers who can see a trustworthy live ETA don't ask where their order is
+- **NPS up 8 points** on the post-checkout experience
+- **Resolution time for damage/mismatch claims down 65%** (48 → under 17 minutes) via the AI verification layer
+- Unlocked the high-value retail SKU expansion
+
+**Skills:** logistics/OMS product design · systems thinking (state machines) · third-party API integration · support automation

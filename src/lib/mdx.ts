@@ -16,6 +16,7 @@ export const getCaseStudyBySlug = async (slug: string) => {
         date: string;
         company: string;
         category?: string;
+        sortOrder?: number;
     }>({
         source: fileContent,
         options: { parseFrontmatter: true },
@@ -34,5 +35,8 @@ export const getAllCaseStudies = async () => {
         posts.push(meta);
     }
 
-    return posts;
+    // Manual ordering via frontmatter `sortOrder` (lower = higher on the page)
+    return posts.sort(
+        (a, b) => (a.sortOrder ?? Infinity) - (b.sortOrder ?? Infinity)
+    );
 };

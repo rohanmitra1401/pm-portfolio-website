@@ -1,0 +1,40 @@
+---
+title: "Merchant CRM: Giving Offline Retailers a Digital Customer Base"
+description: "Zero-to-one WhatsApp-based CRM for offline retailers, built in direct partnership with Meta, with AI-assisted workflows in production."
+date: "Jan 2026 – Present"
+company: "PhonePe Business"
+category: "B2B & Operations"
+sortOrder: 1
+---
+
+## Context
+
+India's offline retailers process millions of transactions a day but know almost nothing about their customers. A kirana store or apparel shop has no purchase history, no contactability, no way to bring a customer back — the data evaporates at checkout. PhonePe sits at that checkout for a massive merchant base, which made this a zero-to-one charter worth owning: turn anonymous offline transactions into a customer base merchants can actually use.
+
+## The problem
+
+Data capture at an offline counter has to be zero-friction for both sides. Any flow that asks the customer to install an app, fill a form, or wait — dies at the till. The product had to piggyback on something both parties already do.
+
+## What I built
+
+The wedge is the **WhatsApp digital bill**. Instead of a paper receipt, the customer gets their bill on WhatsApp — a channel with near-universal reach in India. The merchant gets a data capture pipeline as a side effect of billing: every bill builds their customer database, which then powers repeat-purchase and promotional campaigns from the CRM.
+
+Under the hood this is a three-party integration I defined the product requirements for:
+
+- **PhonePe internal systems** — transaction and merchant data
+- **Meta's WhatsApp Business API** — working directly with Meta on capabilities and API/SDK requirements
+- **Karix (BSP)** — the business solution provider layer for message delivery
+
+A core piece is the **virtual printer integration**: the digital bill slots into the merchant's existing billing flow rather than demanding a new one. It works as a print-driver intercept — the merchant's existing billing software or ERP (Vyapar, Marg, and the like) "prints" the receipt as usual, and the virtual printer intercepts that print command, turning it into a WhatsApp digital bill. The merchant changes nothing about how they bill; the CRM pipeline comes for free.
+
+What happens to the intercepted bill is **AI in production, designed defensively**. The bill image goes through OCR, and an LLM then parses the extracted text — structuring the bill's contents and deciding whether it's a bill at all (billing software prints plenty that isn't one). Because this pipeline decides what reaches a customer on WhatsApp, it runs with guardrails: confidence thresholds gate what gets sent automatically, human-in-the-loop review handles the uncertain middle, and hallucination guardrails constrain what the model can put in a parsed bill.
+
+The defining scoping call: rather than onboarding merchants' own WhatsApp Business accounts for launch — which would mean becoming a WhatsApp TSP and managing account coexistence, a significant regulatory and technical lift — bills go out from PhonePe Business's own WhatsApp handle on behalf of merchants. That let us validate the core hypothesis first: does the virtual printer work reliably across POS variants, and do customers engage with digital bills? The full TSP path remains the destination; it's just not what we needed to prove first.
+
+## Where it stands
+
+Transitioning from Beta to full commercial scale; I'm driving the go-to-market across engineering, Meta/Karix, and PhonePe's business teams. The metrics I watch: virtual printer reliability across billing software variants, bill open rates (WhatsApp read receipts make this trackable), time to first successful bill per merchant, and — the canary — customer opt-out rate, the signal for whether the channel feels useful or intrusive. The post-beta North Star is **customer return rate**: do customers who receive digital bills come back to the same merchant more often than those who don't?
+
+{/* TODO [ADD]: actual beta/pilot numbers when shareable (needs PhonePe clearance). */}
+
+**Skills:** zero-to-one strategy · multi-party API/SDK integration · AI-in-production design · GTM execution

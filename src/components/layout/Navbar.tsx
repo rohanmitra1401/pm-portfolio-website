@@ -12,7 +12,6 @@ const navItems = [
     { name: "Work", path: "/work" },
     { name: "Publications", path: "/publications" },
     { name: "Talks", path: "/talks" },
-    { name: "Dashboard", path: "/dashboard" },
     { name: "Labs", path: "/labs" },
 ];
 

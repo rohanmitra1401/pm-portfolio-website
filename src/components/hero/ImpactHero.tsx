@@ -55,22 +55,52 @@ export default function ImpactHero() {
 
                             <div className="space-y-6 text-lg">
                                 <p className="leading-8 text-zinc-600 dark:text-zinc-400">
-                                    Thank you for dropping by. I am a creator in a world of consumers. An observer, free thinker, and a curious soul.
+                                    I&apos;m a Product Manager with 5+ years across fintech, quick
+                                    commerce, app marketplaces, and enterprise SaaS at PhonePe and
+                                    Airtel.
                                 </p>
                                 <p className="leading-8 text-zinc-600 dark:text-zinc-400">
-                                    I love to learn and believe that knowledge should be freely available & accessible to all, and only through diversity we can truly build a better world.
+                                    I do my best work at zero-to-one: taking an ambiguous charter,
+                                    finding the wedge, and shipping it through messy multi-party
+                                    integrations. I currently own PhonePe&apos;s Merchant CRM
+                                    charter — building a WhatsApp-based CRM for offline retailers in
+                                    direct partnership with Meta, with AI-assisted workflows running
+                                    in production.
                                 </p>
                                 <p className="leading-8 text-zinc-600 dark:text-zinc-400">
-                                    During leisure, I enjoy listening to the sound of water, attending concerts (I am a fan of Electronic Music) and art events. Conversations about time travel, history, or space excite me.
+                                    What I&apos;ve shipped: install conversion lifted from{" "}
+                                    <span className="font-semibold text-zinc-800 dark:text-zinc-200">12.9% to 15.5%</span>{" "}
+                                    by killing my own feature, a{" "}
+                                    <span className="font-semibold text-zinc-800 dark:text-zinc-200">context-aware</span>{" "}
+                                    update system powering{" "}
+                                    <span className="font-semibold text-zinc-800 dark:text-zinc-200">25% of all app updates</span>{" "}
+                                    on India&apos;s first homegrown app store, order breaches cut{" "}
+                                    <span className="font-semibold text-zinc-800 dark:text-zinc-200">11%</span>{" "}
+                                    in quick commerce, and{" "}
+                                    <span className="font-semibold text-zinc-800 dark:text-zinc-200">3,000 enterprise customers</span>{" "}
+                                    migrated off legacy systems.
                                 </p>
                                 <p className="leading-8 text-zinc-600 dark:text-zinc-400">
-                                    In a parallel universe, you might find me either as an archaeologist, sound engineer, travel guide, museum curator, or perhaps running a beach side burger joint, playing rock and roll all day.
+                                    MBA, Delhi School of Economics. B.E., Thapar Institute of
+                                    Engineering &amp; Technology.
                                 </p>
-                                <p className="leading-8 text-zinc-600 dark:text-zinc-400">
-                                    Yet, in the present reality, I am a product manager and I find joy in building consumer apps for a living.
+                            </div>
+
+                            <div className="space-y-4 border-t border-zinc-200 pt-6 dark:border-zinc-800">
+                                <h2 className="text-sm font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+                                    Beyond work
+                                </h2>
+                                <p className="leading-8 text-lg text-zinc-600 dark:text-zinc-400">
+                                    I&apos;m an observer, free thinker, and a curious soul. During
+                                    leisure I enjoy the sound of water, concerts (electronic music,
+                                    mostly), and art events — and conversations about time travel,
+                                    history, or space. In a parallel universe you might find me as
+                                    an archaeologist, sound engineer, or running a beachside burger
+                                    joint playing rock and roll all day.
                                 </p>
-                                <p className="leading-8 text-zinc-600 dark:text-zinc-400">
-                                    Oddly enough, I do get emotional over fonts and colours as I have a soft spot for clean and simple design.
+                                <p className="leading-8 text-lg text-zinc-600 dark:text-zinc-400">
+                                    Oddly enough, I do get emotional over fonts and colours — I have
+                                    a soft spot for clean and simple design.
                                 </p>
                             </div>
                         </div>

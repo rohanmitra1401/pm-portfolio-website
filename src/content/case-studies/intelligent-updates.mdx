@@ -1,27 +1,39 @@
 ---
-title: "Intelligent Updates"
-description: "Optimizing data usage for app updates by 40%."
-date: "2024-05-20"
-company: "PhonePe"
+title: "Intelligent Updates: A Context-Aware Answer to India's Data Constraint"
+description: "A mobile-data-aware update framework powering 25% of all app updates on India's first homegrown app store — with under 1% opt-out."
+date: "Sep 2022 – Sep 2025"
+company: "PhonePe (Indus Appstore)"
 category: "Consumer"
+sortOrder: 4
 ---
 
-# Situation
-Users in tier-2 and tier-3 cities were experiencing high failure rates when updating the app due to patchy network conditions and limited data plans. This led to version fragmentation, with many users stuck on older, less secure versions of the app.
+## Context
 
-# Task
-My goal was to reduce the data consumption required for app updates and improve the successful update rate. We aimed to reduce data usage by at least 30% and improve update completion rates by 20%.
+App update completion rates on Indus were low, for three compounding reasons. Around **70% of our users relied exclusively on mobile data** with strict daily limits (typically 1–2 GB/day) — and global app distribution models are built for Wi-Fi-first environments. Indian carriers don't expose real-time data balance via APIs, so we had no visibility into a user's remaining quota. Our UX was optimised for discovery, which made update management a secondary, harder-to-reach flow. And updates simply aren't top-of-mind — users don't seek them out, especially when doing so means a conscious data-spend decision.
 
-# Action
-I spearheaded the development of a smart update system:
+The result was a stagnant ecosystem: users stuck on buggy or insecure versions, and developers burdened with maintaining compatibility with builds they'd already superseded.
 
-- **Delta Updates**: Implemented a binary diffing algorithm that only downloads the parts of the APK that changed, rather than the entire package.
-- **Network-Aware Scheduling**: The updater analyzes network strength and schedules larger downloads for when the user is on Wi-Fi or a stable 4G connection.
-- **Resumable Downloads**: Added support for pausing and resuming downloads, critical for handling intermittent connectivity.
+## The goal
 
-# Result
-The new "Intelligent Updates" system delivered massive improvements:
+Move updates from a friction-heavy manual action to a seamless background optimisation — an orchestration layer that managed the app lifecycle automatically, respecting the user's data constraints without ever requiring them to think about updates. Success would look like nothing at all: a user who simply never noticed.
 
-- **40% Reduction in Data Usage**: The average update size dropped significantly, saving users valuable data.
-- **35% Improvement in Completion Rates**: More users successfully updated to the latest version, reducing fragmentation.
-- **Enhanced Security**: Faster adoption of security patches due to smaller download sizes.
+## How it works
+
+**The eligibility layer.** With no real-time balance API, I designed a proxy-based eligibility model using Android's NetworkStatsManager to measure 15-day historical usage: a user consistently consuming more than 0.5 GB/day on 4G/5G is almost certainly on a plan of at least 1 GB/day — you can't sustain that consumption on a smaller plan. We validated the eligibility line against cohort-level aggregate data from PhonePe recharges. Roaming and 2G/3G connections were hard exclusions.
+
+**Intelligent scheduling.** The system polled for Wi-Fi throughout the day and triggered immediately when available. For users who never touched Wi-Fi, we chose a **10–11 PM mobile-data window** — deliberately: major Indian carriers reset daily packs at midnight, so we were consuming data that would have expired unused, essentially free from the user's perspective. A 60-minute execution window spread fleet-wide requests to avoid a server spike.
+
+**Financial guardrails.** A hard 200 MB daily cap meant that even if the eligibility signal was wrong for a user, the worst case was 200 MB — not a full quota wipeout.
+
+**Predictive prioritisation.** Critical security patches were processed first within the available envelope; non-critical updates were ordered by version lag and active usage frequency. Oversized updates deferred to the next window or to Wi-Fi.
+
+**Silent execution.** On Android 12+ we used the silent update API for zero-prompt background installs. Pre-Android 12 devices (~25% of the base) were deliberately excluded — the UX trade-off below that API level didn't make sense for what we were trying to achieve.
+
+## Impact
+
+- Powers **25% of all app updates** on the platform, lifting total updates per user by **15%**
+- **Under 1% of eligible users opted out** — the clearest signal users felt the benefit without feeling the cost
+- Developers finally saw meaningful version adoption from users previously stuck for months, cutting the debt of supporting legacy builds
+- A genuine "made for India" differentiator — no global app store had (or has) an equivalent mobile-data-aware update system
+
+**Skills:** technical product design · constraint-driven innovation · systems orchestration

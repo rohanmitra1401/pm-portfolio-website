@@ -1,31 +1,30 @@
 ---
-title: "Indus Appstore Discovery"
-description: "Increasing app installs by 27% through localized discovery."
-date: "2024-01-15"
-company: "PhonePe (Indus)"
+title: "The Video Pivot: Killing My Own Feature to Find the Real Use Case"
+description: "Install conversion lifted from 12.9% to 15.5% — by killing a TikTok-style feed and repositioning video where the install decision actually happens."
+date: "Sep 2022 – Sep 2025"
+company: "PhonePe (Indus Appstore)"
 category: "Consumer"
+sortOrder: 2
 ---
 
-# Situation
-The **Indus Appstore** launched with a massive library of apps, but user engagement was lower than expected. Users found it difficult to discover relevant apps due to a generic ranking algorithm that didn't account for regional preferences.
+## Context
 
-# Task
-My goal was to **increase the Day-30 (D30) Retention rate** and **App Install conversions** by overhauling the Discovery Pod's recommendation engine. Success would be measured by a lift in retention and a decrease in "search abandonment".
+Indus AppStore is India's first homegrown Android app store. I owned Discovery — the consumer storefront, with conversion, engagement, and retention as my outcomes. Short-form video was exploding in India, and we bet on a full-screen video feed inside the app store: TikTok-style browsing for app discovery.
 
-# Action
-I led a cross-functional team of 8 engineers and 2 data scientists to implement the following:
+Even getting it built required de-risking: engineering was rightly skeptical of video infrastructure derailing the roadmap, so V1 shipped in five weeks with no ML on the critical path — videos ranked by category popularity and manual tags — while we instrumented every interaction (watch time, completion rate, scroll depth, tap-through) from day one. To beat the cold start, my team hand-curated ~500 videos covering the top 100 trending apps before launch.
 
-- **Scale to 1M+ DAU**: Architected the discovery engine to handle rapid scaling from 0 to over 1 million Daily Active Users at launch.
-- **Hyper-Localization**: Championed adoption for **12 regional languages**, breaking entry barriers for non-English speakers and driving deep engagement.
-- **Localized Recommendations**: We ingested regional usage data to boost apps popular in specific geolocations (e.g., boosting regional news apps in Kerala).
-- **Short Video Feeds**: Introduced a "TikTok-style" feed for app previews, allowing users to see gameplay or app utility before downloading.
-- **Micro-Interactions**: Used Framer Motion (like we are using here!) to make the scrolling experience fluid and addictive.
+## The call
 
-# Result
-These changes led to significant wins:
+On the surface it worked: strong watch times, high engagement, growing MAUs. But the instrumentation we'd insisted on told the real story — users were watching videos and not downloading apps. We had built an entertainment experience inside a utility product. Users came to an app store with intent; a lean-back feed fought that intent instead of serving it. I could have reframed the KPIs around engagement and asked for more headcount. Instead I went back to first principles — what is an app store fundamentally for? — and killed my own feature.
 
-- **27% Lift in D30 Retention**: Users who engaged with the new discovery feed were far more likely to return.
-- **12% Increase in Installs**: The video previews conversions significantly.
-- **4.8/5 Rating**: The app store rating improved due to better relevance.
+The insight worth keeping wasn't the feed, it was the format: video sells apps better than screenshots. So I repositioned the same underlying tech as **contextual app trailers** — short-form video embedded where the install decision actually happens, on the app detail page, instead of a destination feed.
 
-> "The new discovery feed is a game changer for our regional users." - CPO, PhonePe
+## Impact
+
+- **Install conversion: 12.9% → 15.5%** — a 20% relative lift
+- **Installs per video watched more than doubled**, and backend costs dropped — we were no longer serving an entertainment feed that didn't convert
+- The surrounding review + short-video ecosystem drove **+20% 30-day retention** and **150k+ organic ratings**
+
+The lesson I carry: the sunk cost was the feed, not the capability. Repositioning beat both persisting and abandoning.
+
+**Skills:** product sense · metric-led decisions · killing features · consumer video/UGC
