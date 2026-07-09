@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 import SkillsCloud from "./SkillsCloud";
 
 export default function ImpactHero() {
@@ -119,6 +120,15 @@ export default function ImpactHero() {
                                     alt="LinkedIn"
                                     className="h-6 w-6 transition-transform group-hover:scale-110"
                                 />
+                            </a>
+                            <a
+                                href="https://github.com/rohanmitra1401"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800/60 transition-all hover:bg-zinc-200 dark:hover:bg-zinc-700/60"
+                                aria-label="GitHub Profile"
+                            >
+                                <Github className="h-6 w-6 text-zinc-900 dark:text-zinc-100 transition-transform group-hover:scale-110" />
                             </a>
                             <a
                                 href="mailto:rmitra1401@gmail.com"
