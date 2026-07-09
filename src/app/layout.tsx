@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rohanmitra.com"),
+  metadataBase: new URL("https://rohanmitrapm-portfolio.vercel.app"),
   title: {
     default: "Rohan Mitra | Product Manager",
     template: "%s | Rohan Mitra",
@@ -51,7 +51,7 @@ const personSchema = {
   "@type": "Person",
   name: "Rohan Mitra",
   jobTitle: "Product Manager",
-  url: "https://rohanmitra.com",
+  url: "https://rohanmitrapm-portfolio.vercel.app",
   sameAs: ["https://www.linkedin.com/in/mitrarohan/"],
   alumniOf: [
     {
