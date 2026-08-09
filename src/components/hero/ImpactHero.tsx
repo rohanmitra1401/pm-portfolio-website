@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
-import SkillsCloud from "./SkillsCloud";
 
 export default function ImpactHero() {
     return (
@@ -144,9 +143,6 @@ export default function ImpactHero() {
                             </a>
                         </div>
 
-                        <div className="pt-8">
-                            <SkillsCloud />
-                        </div>
                     </motion.div>
 
                 </div>
