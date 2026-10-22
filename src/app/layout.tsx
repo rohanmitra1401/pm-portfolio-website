@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rohanmitrapm-portfolio.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Rohan Mitra | Product Manager",
     template: "%s | Rohan Mitra",
   },
   description:
     "Product Manager with experience at PhonePe and Airtel. Building consumer apps at scale. Published author and conference speaker on product strategy and AI agents.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -51,7 +55,7 @@ const personSchema = {
   "@type": "Person",
   name: "Rohan Mitra",
   jobTitle: "Product Manager",
-  url: "https://rohanmitrapm-portfolio.vercel.app",
+  url: SITE_URL,
   sameAs: ["https://www.linkedin.com/in/mitrarohan/"],
   alumniOf: [
     {

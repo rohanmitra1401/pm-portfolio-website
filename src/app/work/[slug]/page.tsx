@@ -16,7 +16,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const study = await getCaseStudyBySlug(params.slug);
     if (!study) return {};
 
-    return { title: `${study.meta.title} | Rohan Mitra` };
+    return {
+        title: study.meta.title,
+        description: study.meta.description,
+        alternates: { canonical: `/work/${study.meta.slug}` },
+    };
 }
 
 export default async function CaseStudyPage({ params }: { params: { slug: string } }) {

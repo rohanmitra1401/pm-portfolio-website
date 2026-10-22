@@ -2,8 +2,11 @@ import SpotifySetlistWidget from "@/components/labs/SpotifySetlistWidget";
 import VibeReelWidget from "@/components/labs/VibeReelWidget";
 
 export const metadata = {
-    title: "Labs | Rohan Mitra",
+    title: "Labs",
     description: "Experimental projects and Vibe Coding.",
+    alternates: {
+        canonical: "/labs",
+    },
 };
 
 export default function LabsPage() {

@@ -1,11 +1,15 @@
 import { getAllTalks } from "@/data/talks";
 import TalkList from "@/components/talks/TalkList";
 import type { Metadata } from "next";
+import { SITE_URL, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
     title: "Talks",
     description:
         "Conference talks and speaking engagements by Rohan Mitra on product management, AI agents, agentic design, and building consumer products at scale.",
+    alternates: {
+        canonical: "/talks",
+    },
     openGraph: {
         title: "Talks | Rohan Mitra",
         description:
@@ -20,11 +24,11 @@ function TalksJsonLd({ talks }: { talks: ReturnType<typeof getAllTalks> }) {
         "@type": "CollectionPage",
         name: "Talks & Speaking Engagements by Rohan Mitra",
         description: metadata.description,
-        url: "https://rohanmitra.com/talks",
+        url: absoluteUrl("/talks"),
         author: {
             "@type": "Person",
             name: "Rohan Mitra",
-            url: "https://rohanmitra.com",
+            url: SITE_URL,
         },
         hasPart: talks.map((talk) =>
             talk.platform === "youtube" && talk.videoId

@@ -1,11 +1,15 @@
 import { getAllPublications } from "@/data/publications";
 import PublicationList from "@/components/publications/PublicationList";
 import type { Metadata } from "next";
+import { SITE_URL, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
     title: "Publications",
     description:
         "Published articles on product management, AI agents, consumer app design, and building at scale — by Rohan Mitra. Featured on Mind the Product, the Institute of Product Leadership, and more.",
+    alternates: {
+        canonical: "/publications",
+    },
     openGraph: {
         title: "Publications | Rohan Mitra",
         description:
@@ -20,11 +24,11 @@ function PublicationsJsonLd({ publications }: { publications: ReturnType<typeof 
         "@type": "CollectionPage",
         name: "Publications by Rohan Mitra",
         description: metadata.description,
-        url: "https://rohanmitra.com/publications",
+        url: absoluteUrl("/publications"),
         author: {
             "@type": "Person",
             name: "Rohan Mitra",
-            url: "https://rohanmitra.com",
+            url: SITE_URL,
         },
         hasPart: publications.map((pub) => ({
             "@type": "Article",

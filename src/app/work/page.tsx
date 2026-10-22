@@ -2,8 +2,11 @@ import { getAllCaseStudies } from "@/lib/mdx";
 import CaseStudyList from "@/components/work/CaseStudyList";
 
 export const metadata = {
-    title: "Work | Rohan Mitra",
+    title: "Work",
     description: "Case studies and product impact.",
+    alternates: {
+        canonical: "/work",
+    },
 };
 
 export default async function WorkPage() {

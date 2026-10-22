@@ -6,12 +6,12 @@ import Skills from "@/components/home/Skills";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <ImpactHero />
       <Experience />
       <Education />
       <ThoughtLeadership />
       <Skills />
-    </main>
+    </div>
   );
 }
