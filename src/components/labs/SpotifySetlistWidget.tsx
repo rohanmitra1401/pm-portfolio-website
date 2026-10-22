@@ -37,7 +37,7 @@ export default function SpotifySetlistWidget() {
                     <div className="bg-zinc-900/50 rounded-lg p-4 border border-zinc-800 font-mono text-xs text-zinc-300">
                         <div className="flex justify-between mb-2">
                             <span>Current Vibe:</span>
-                            <span className="text-green-400">"Peak Hour Techno"</span>
+                            <span className="text-green-400">&ldquo;Peak Hour Techno&rdquo;</span>
                         </div>
                         <div className="space-y-1 opacity-70">
                             <div className="flex justify-between">

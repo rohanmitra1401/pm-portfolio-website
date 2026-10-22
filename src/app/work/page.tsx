@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getAllCaseStudies } from "@/lib/mdx";
 import CaseStudyList from "@/components/work/CaseStudyList";
 
