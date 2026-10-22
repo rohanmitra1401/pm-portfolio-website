@@ -1,14 +1,29 @@
-import { getCaseStudyBySlug } from "@/lib/mdx";
+import { getAllCaseStudySlugs, getCaseStudyBySlug } from "@/lib/mdx";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
+// Case studies are read from disk at build time, so the set is fixed per
+// deploy: prerender all of them and 404 anything else without touching the
+// filesystem at request time.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return getAllCaseStudySlugs().map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const { meta } = await getCaseStudyBySlug(params.slug);
-    return { title: `${meta.title} | Rohan Mitra` };
+    const study = await getCaseStudyBySlug(params.slug);
+    if (!study) return {};
+
+    return { title: `${study.meta.title} | Rohan Mitra` };
 }
 
 export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
-    const { meta, content } = await getCaseStudyBySlug(params.slug);
+    const study = await getCaseStudyBySlug(params.slug);
+    if (!study) notFound();
+
+    const { meta, content } = study;
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-3xl">
